@@ -4,7 +4,7 @@ PRACTICE Exam 1, problem 1.
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Valerie Galluzzi, Mark Hays, Amanda Stouder, Aaron Wilkin,
          their colleagues, and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+"""  # Done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ###############################################################################
 # Students:
@@ -38,7 +38,7 @@ def main():
 
 
 ###############################################################################
-# TODO: 2.  READ the green doc-string for the:
+# Done: 2.  READ the green doc-string for the:
 #   - is_prime
 #   - sum_of_digits
 # functions defined below.  You do NOT need to understand their
@@ -106,7 +106,7 @@ def sum_of_digits(number):
 def run_test_problem1a():
     """ Tests the   problem1a   function. """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement this TEST function.
+    # Done: 3. Implement this TEST function.
     #   It TESTS the  problem1a  function defined below.
     #   Include at least **   4   ** tests (we wrote two for you).
     # -------------------------------------------------------------------------
@@ -168,7 +168,7 @@ def problem1a(m, n):
       -- If m is 30 and n is 100, the correct answer is about 1.278.
     """
     # -------------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # Done: 4. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # -------------------------------------------------------------------------
     # -------------------------------------------------------------------------
@@ -177,11 +177,17 @@ def problem1a(m, n):
     #    TIME ESTIMATE:   10 minutes.
     # -------------------------------------------------------------------------
 
+    import math
+    total = 0
+    for k in range(((n **2) + 1) - m**2):
+        total = total + (math.sin(k+m**2))
+    return total
+
 
 def run_test_problem1b():
     """ Tests the   problem1b   function. """
     # -------------------------------------------------------------------------
-    # TODO: 5. Implement this TEST function.
+    # Done: 5. Implement this TEST function.
     #   It TESTS the  problem1b  function defined below.
     #   Include at least **   4   ** tests.  Use the usual form:
     #
@@ -199,6 +205,29 @@ def run_test_problem1b():
     print('Testing the   problem1b   function:')
     print('--------------------------------------------------')
 
+    # Test 1
+    expected = 10
+    actual = problem1b(7, 6)
+    print('Test 1 expected:', expected)
+    print('       actual:  ', actual)
+
+    # Test 2
+    expected = 4
+    actual = problem1b(5, 3)
+    print('Test 2 expected:', expected)
+    print('       actual:  ', actual)
+
+    # Test 3
+    expected = 6
+    actual = problem1b(6, 4)
+    print('Test 3 expected:', expected)
+    print('       actual:  ', actual)
+
+    # Test 4
+    expected = 1
+    actual = problem1b(7, 1)
+    print('Test 4 expected:', expected)
+    print('       actual:  ', actual)
 
 def problem1b(m, f):
     """
@@ -217,7 +246,7 @@ def problem1b(m, f):
            since there are 44 primes between 5 and 200.
      """
     # -------------------------------------------------------------------------
-    # TODO: 6. Implement and test this function.
+    # Done: 6. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     #
     ###########################################################################
@@ -230,6 +259,14 @@ def problem1b(m, f):
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   10 to 15 minutes.
     # -------------------------------------------------------------------------
+    total = 0
+    for k in range((m * f) - m):
+        if is_prime(k+m):
+            total = total + 1
+    if((m * f)-m)==0:
+        if is_prime(m):
+            total = total + 1
+    return total
 
 
 def run_test_problem1c():
@@ -314,7 +351,7 @@ def problem1c(n):
            and the sum of the digits in 223092870 is 33.
     """
     # -------------------------------------------------------------------------
-    # TODO: 7. Implement and test this function.
+    # Done: 7. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ###########################################################################
@@ -328,6 +365,14 @@ def problem1c(n):
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   15 to 20 minutes.
     # -------------------------------------------------------------------------
+    product = 1
+    for k in range(n):
+        if is_prime(k + 1):
+            product = product * (k + 1)
+    sum = sum_of_digits(product)
+    return sum
+
+
 
 
 ###############################################################################
