@@ -146,7 +146,19 @@ def problem3a(window, point, n):
     #    DIFFICULTY:      7 or 8
     #    TIME ESTIMATE:   20 to 35 minutes.
     # -------------------------------------------------------------------------
-
+    sum = 0
+    for k in range(n):
+        point1 = rg.Point(point.x + 20 * k,point.y + 10 * k)
+        point2 = rg.Point(point.x + 20 * k, point.y + 10 * k + 50)
+        line = rg.Line(point1, point2)
+        if 2 * k <= 12:
+            line.thickness = line.thickness + (2 * k)
+        else:
+            line.thickness = 13
+        sum = sum + line.thickness
+        line.attach_to(window)
+    window.render()
+    return sum
 
 def run_test_problem3b():
     """ Tests the   problem3b   function. """
@@ -215,7 +227,13 @@ def problem3b(m, point1):
     #    DIFFICULTY:      8 or 9
     #    TIME ESTIMATE:   20 to 30 minutes.
     # -------------------------------------------------------------------------
-
+    window = rg.RoseWindow(400, 600)
+    sum = 0
+    for k in range(m):
+        sum = sum + problem3a(window, rg.Point(point1.x, point1.y + (60 * k))), 3 + (2*k)
+        window.render()
+        window.close_on_mouse_click()
+        return sum 
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
 # -----------------------------------------------------------------------------
