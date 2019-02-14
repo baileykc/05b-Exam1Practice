@@ -121,8 +121,7 @@ def problem2a(circle, rectangle, window):
     window.render()
     window.continue_on_mouse_click()
     circle.fill_color = rectangle.outline_color
-    window.render
-
+    window.render()
 
 def run_test_problem2b():
     """ Tests the  problem2b   function. """
